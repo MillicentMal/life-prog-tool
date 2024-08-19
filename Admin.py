@@ -29,9 +29,23 @@ class Admin:
     def email(self):
         del self._email
     
+    @property
+    def password(self):
+        return 'For security reasons you can not see this password'
+
+    @password.setter
+    def password(self, password):
+        if validate_password(password):
+            self._password = password
 
 
-admin1 = Admin('Joshua')
-print(admin1.name)
-admin1.name = 1
-print(admin1.name)
+
+
+
+
+
+
+admin1 = Admin('josh@hater.com', 'wesbaby', 'Joshua', 'Momo')
+print(admin1.email)
+admin1.email = 'millicent'
+print(admin1.email)
