@@ -14,6 +14,21 @@ class Admin:
         self.first_name = first_name
         self.last_name = last_name
 
+    @property
+    def email(self):
+        return self._email
+    
+    @email.setter
+    def email(self, value):
+        if '@' in value and value.endswith('.com'):
+            self._email = value
+        else:
+            print("Please enter a valid email.")
+    
+    @email.deleter
+    def email(self):
+        del self._email
+    
 
 
 admin1 = Admin('Joshua')
