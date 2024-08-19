@@ -2,14 +2,13 @@ from abc import ABC, abstractmethod
 
 
 class User(ABC):
-    def __init__(self, email):
-        self.email = email
+    def __init__(self, name):
+        self.name = name
 
     # methods
 
     @abstractmethod
     def user(self):
-        
         pass
 
     @abstractmethod
@@ -19,5 +18,3 @@ class User(ABC):
     @abstractmethod
     def registration(self, email):
         pass
-
-admin = User("Admin")
