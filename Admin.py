@@ -7,19 +7,13 @@ class Admin:
     3.
 
     """
-    def __init__(self, name):
-        self.name = name
 
-    @property
-    def name(self):
-        return self._name
+    def __init__(self, email, password, first_name, last_name):
+        self.email = email
+        self.password = password
+        self.first_name = first_name
+        self.last_name = last_name
 
-    @name.setter
-    def name(self, name):
-        if not isinstance(name, str):
-            raise TypeError("Name must be a string")
-        else:
-            self._name = name
 
 
 admin1 = Admin('Joshua')
