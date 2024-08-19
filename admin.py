@@ -1,4 +1,5 @@
-from User import User
+from user import User
+from patient import Patient
 
 class Admin(User):
     """
@@ -17,8 +18,10 @@ class Admin(User):
     def login(self):
         pass
 
-    def registration(self):
-        pass
+    def registration(self, email):
+        new_person = Admin(email, 'ghjkluyhfiyghbjrfdsin')
+        return new_person
+        
 
 
 
@@ -30,3 +33,5 @@ class Admin(User):
 admin1 = Admin('josh@hater.com', 'wesbaby78')
 
 admin1.password = "carolbaby789"
+
+print(admin1.registration('mimi@gmail.com').__dict__)
