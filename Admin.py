@@ -29,6 +29,7 @@ class Admin:
     def email(self):
         del self._email
     
+    
 
 
 admin1 = Admin('Joshua')
