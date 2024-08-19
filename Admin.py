@@ -1,4 +1,6 @@
-class Admin:
+from User import User
+
+class Admin(User):
     """
     Implements an Admin class
     Admin can:
@@ -8,33 +10,15 @@ class Admin:
 
     """
 
-    def __init__(self, email, password, first_name, last_name):
-        super().__init__(email, password, first_name, last_name)
-        
+    def __init__(self, email, password):
+        super().__init__(email, password)
 
-    @property
-    def email(self):
-        return self._email
-    
-    @email.setter
-    def email(self, value):
-        if '@' in value and value.endswith('.com'):
-            self._email = value
-        else:
-            print("Please enter a valid email.")
-    
-    @email.deleter
-    def email(self):
-        del self._email
-    
-    @property
-    def password(self):
-        return 'For security reasons you can not see this password'
 
-    @password.setter
-    def password(self, password):
-        if validate_password(password):
-            self._password = password
+    def login(self):
+        pass
+
+    def registration(self):
+        pass
 
 
 
@@ -43,7 +27,6 @@ class Admin:
 
 
 
-admin1 = Admin('josh@hater.com', 'wesbaby', 'Joshua', 'Momo')
-print(admin1.email)
-admin1.email = 'millicent'
-print(admin1.email)
+admin1 = Admin('josh@hater.com', 'wesbaby78')
+
+admin1.password = "carolbaby789"

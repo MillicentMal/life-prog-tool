@@ -3,12 +3,10 @@ from abc import ABC, abstractmethod
 
 class User(ABC):
 
-    def __init__(self, email, password, first_name, last_name):
+    def __init__(self, email, password):
         self.email = email
         self.password = password
-        self.first_name = first_name
-        self.last_name = last_name
-
+        
     @property
     def email(self):
         return self._email
@@ -26,18 +24,21 @@ class User(ABC):
 
     @property
     def password(self):
-        return 'For security reasons you can not see this password'
+        return self._password
+        # return 'For security reasons you can not see this password'
 
     @password.setter
     def password(self, password):
-        if validate_password(password):
+        # password = input("Enter your password: ")
+        # confirm_password = input("Enter password again: ")
+
+        if len(password) > 8 and password.isalnum():
             self._password = password
+            return self._password
+        else:
+            print("Wrong password!")
 
     # methods
-
-    @abstractmethod
-    def user(self):
-        pass
 
     @abstractmethod
     def login(self):
