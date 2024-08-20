@@ -3,9 +3,10 @@ from abc import ABC, abstractmethod
 
 class User(ABC):
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, role):
         self.email = email
         self.password = password
+        self.role = role 
         
     @property
     def email(self):

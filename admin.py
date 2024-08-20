@@ -1,5 +1,6 @@
 from user import User
 from patient import Patient
+from roles_enum import Role
 
 class Admin(User):
     """
@@ -12,7 +13,7 @@ class Admin(User):
     """
 
     def __init__(self, email, password):
-        super().__init__(email, password)
+        super().__init__(email, password, role=Role.ADMIN)
 
 
     def login(self):
