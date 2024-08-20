@@ -12,8 +12,8 @@ class Admin(User):
 
     """
 
-    def __init__(self, email, password):
-        super().__init__(email, password, role=Role.ADMIN)
+    def __init__(self, first_name, last_name, email, password):
+        super().__init__(first_name, last_name, email, password, role=Role.ADMIN)
 
 
     def login(self):

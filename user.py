@@ -1,11 +1,15 @@
 from abc import ABC, abstractmethod
+import hashlib
+from roles_enum import Role
 
 
 class User(ABC):
-
-    def __init__(self, email, password, role):
+    """A formal abstract class that enforces strict inheritance on the sub-classes."""
+    def __init__(self, first_name, last_name, email, password, role):
+        self.first_name = first_name
+        self.last_name = last_name
         self.email = email
-        self.password = password
+        self.password = self.hash_password(password)
         self.role = role 
         
     @property
@@ -25,11 +29,14 @@ class User(ABC):
 
     @property
     def password(self):
+        """Getter method for password."""
         return self._password
         # return 'For security reasons you can not see this password'
 
     @password.setter
     def password(self, password):
+        """Setter method for password attr. It allows 
+        a strict setting of password in the object."""
         # password = input("Enter your password: ")
         # confirm_password = input("Enter password again: ")
 
@@ -40,7 +47,10 @@ class User(ABC):
             print("Wrong password!")
 
     # methods
-
+    @staticmethod
+    def hash_password(password):
+        return hashlib.sha256(password.encode('utf-8').hexdigest())
+    
     @abstractmethod
     def login(self):
         pass
@@ -48,3 +58,14 @@ class User(ABC):
     @abstractmethod
     def registration(self, email):
         pass
+    
+    @abstractmethod
+    def view_profile(self):
+        pass
+    
+    @abstractmethod
+    def update_profile(self):
+        pass
+
+    def __str__(self) -> str:
+        return super().__str__()
