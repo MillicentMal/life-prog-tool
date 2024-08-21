@@ -9,7 +9,7 @@ class User(ABC):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
-        self.password = self.hash_password(password)
+        self.password = password
         self.role = role 
         
     @property
@@ -41,15 +41,15 @@ class User(ABC):
         # confirm_password = input("Enter password again: ")
 
         if len(password) > 8 and password.isalnum():
-            self._password = password
+            self._password = hashlib.sha256(password.encode('utf-8')).hexdigest()
             return self._password
         else:
             print("Wrong password!")
 
     # methods
-    @staticmethod
-    def hash_password(password):
-        return hashlib.sha256(password.encode('utf-8').hexdigest())
+    # @staticmethod
+    # def hash_password(password):
+    #     return hashlib.sha256(password.encode('utf-8').hexdigest())
     
     @abstractmethod
     def login(self):

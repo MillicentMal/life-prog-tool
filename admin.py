@@ -1,6 +1,9 @@
+import uuid
+
 from user import User
 from patient import Patient
 from roles_enum import Role
+
 
 class Admin(User):
     """
@@ -15,24 +18,19 @@ class Admin(User):
     def __init__(self, first_name, last_name, email, password):
         super().__init__(first_name, last_name, email, password, role=Role.ADMIN)
 
-
     def login(self):
         pass
 
+    def update_profile(self):
+        pass
+
+    def view_profile(self):
+        pass
+
     def registration(self, email):
-        new_person = Admin(email, 'ghjkluyhfiyghbjrfdsin')
-        return new_person
-        
+        return email, str(uuid.uuid4())
 
 
-
-
-
-
-
-
-admin1 = Admin('josh@hater.com', 'wesbaby78')
-
-admin1.password = "carolbaby789"
-
-print(admin1.registration('mimi@gmail.com').__dict__)
+# admin1 = Admin('Test', 'Admin', 'test@testing.com', 'password123')
+# email = input('Enter the email: ')
+# print(admin1.registration(email))
